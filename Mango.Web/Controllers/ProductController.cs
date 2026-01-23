@@ -58,6 +58,38 @@ public class ProductController : Controller
         return View(model);
     }
 
+    public async Task<IActionResult> ProductEdit(int productId)
+    {
+        ResponseDto? response = await _productService.GetProductByIdAsync(productId);
+
+        if (response != null && response.IsSuccess)
+        {
+            ProductDTO? model = JsonConvert.DeserializeObject<ProductDTO>(Convert.ToString(response.Result));
+            return View(model);
+        }
+        return NotFound();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ProductEdit(ProductDTO model)
+    {
+        if (ModelState.IsValid)
+        {
+            ResponseDto? response = await _productService.UpdateProductAsync(model);
+
+            if (response != null && response.IsSuccess)
+            {
+                TempData["success"] = "Product updated successfully";
+                return RedirectToAction(nameof(ProductIndex));
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+        }
+        return  View(model);
+    }
+
     public async Task<IActionResult> ProductDelete(int productId)
     {
         ResponseDto? response = await _productService.GetProductByIdAsync(productId);
