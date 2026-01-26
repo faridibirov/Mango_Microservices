@@ -56,7 +56,7 @@ namespace Mango.Services.ShoppingCartAPI.Migrations
                     b.Property<string>("CouponCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UerId")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CartHeaderId");

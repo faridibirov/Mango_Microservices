@@ -37,7 +37,7 @@ public class CartAPIController : ControllerBase
         {
             CartDto cart = new()
             {
-                CartHeader = _mapper.Map<CartHeaderDto>(_db.CartHeaders.First(u => u.UerId == userId))
+                CartHeader = _mapper.Map<CartHeaderDto>(_db.CartHeaders.First(u => u.UserId == userId))
             };
             cart.CartDetails = _mapper.Map<IEnumerable<CartDetailsDto>>(_db.CartDetails
                 .Where(u=>u.CartHeaderId==cart.CartHeader.CartHeaderId));
@@ -74,7 +74,7 @@ public class CartAPIController : ControllerBase
     {
         try
         {
-            var cartFromDb = await _db.CartHeaders.FirstAsync(u=>u.UerId==cartDto.CartHeader.UerId);
+            var cartFromDb = await _db.CartHeaders.FirstAsync(u=>u.UserId==cartDto.CartHeader.UserId);
             cartFromDb.CouponCode = cartDto.CartHeader.CouponCode;
             _db.CartHeaders.Update(cartFromDb);
             await _db.SaveChangesAsync();
@@ -93,7 +93,7 @@ public class CartAPIController : ControllerBase
     {
         try
         {
-            var cartHeaderFromDb = await _db.CartHeaders.AsNoTracking().FirstOrDefaultAsync(u => u.UerId == cartDto.CartHeader.UerId);
+            var cartHeaderFromDb = await _db.CartHeaders.AsNoTracking().FirstOrDefaultAsync(u => u.UserId == cartDto.CartHeader.UserId);
             if (cartHeaderFromDb == null)
             {
                 //create header and detils
@@ -108,22 +108,22 @@ public class CartAPIController : ControllerBase
             {
                 //if header is not null
                 //check if details has same product
-                var cartDetailssFromDb = await _db.CartDetails.AsNoTracking().FirstOrDefaultAsync(
+                var cartDetailsFromDb = await _db.CartDetails.AsNoTracking().FirstOrDefaultAsync(
                     u => u.ProductId == cartDto.CartDetails.First().ProductId &&
                     u.CartHeaderId==cartHeaderFromDb.CartHeaderId);
-                if (cartDetailssFromDb == null)
+                if (cartDetailsFromDb == null)
                 {
                     //create cartdetails
-                    cartDto.CartDetails.First().CartHeaderId = cartDetailssFromDb.CartHeaderId;
+                    cartDto.CartDetails.First().CartHeaderId = cartHeaderFromDb.CartHeaderId;
                     _db.CartDetails.Add(_mapper.Map<CartDetails>(cartDto.CartDetails.First()));
                     await _db.SaveChangesAsync();
                 }
                 else
                 {
                     //update count in cart details
-                    cartDto.CartDetails.First().Count += cartDetailssFromDb.Count;
-                    cartDto.CartDetails.First().CartHeaderId = cartDetailssFromDb.CartHeaderId;
-                    cartDto.CartDetails.First().CartDetailsId = cartDetailssFromDb.CartDetailsId;
+                    cartDto.CartDetails.First().Count += cartDetailsFromDb.Count;
+                    cartDto.CartDetails.First().CartHeaderId = cartDetailsFromDb.CartHeaderId;
+                    cartDto.CartDetails.First().CartDetailsId = cartDetailsFromDb.CartDetailsId;
                     _db.CartDetails.Update(_mapper.Map<CartDetails>(cartDto.CartDetails.First()));
                     await _db.SaveChangesAsync();
                 }
