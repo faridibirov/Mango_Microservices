@@ -97,7 +97,7 @@ public class CartAPIController : ControllerBase
     {
         try
         {
-            await _messageBus.PublishMessage(cartDto, _configuration.GetValue<string>("TopicAndQueuNames:EmailShoppingCart"));
+            await _messageBus.PublishMessage(cartDto, _configuration.GetValue<string>("TopicAndQueuNames:EmailShoppingCartQueue"));
             _response.Result = true;
         }
         catch (Exception ex)
