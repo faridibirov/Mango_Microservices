@@ -27,7 +27,7 @@ public class AzureServiceBusConsumer:IAzureServiceBusConsumer
         registerUserQueue = _configuration.GetValue<string>("TopicAndQueuNames:RegisterUserQueue");
         var client = new ServiceBusClient(serviceBusConnectionString);
         _emailCartProcessor = client.CreateProcessor(emailCartQueue);
-        _registerUserProcessor = client.CreateProcessor(emailCartQueue);
+        _registerUserProcessor = client.CreateProcessor(registerUserQueue);
     }
 
     public async Task Start()

@@ -101,7 +101,7 @@ public class AuthController : Controller
         return View(obj);
     }
 
-    [HttpPost]
+
     public async  Task<IActionResult> Logout()
     {
         await HttpContext.SignOutAsync();
