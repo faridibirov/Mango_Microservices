@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Services.ShoppingCart
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.MessageBus", "Mango.MessageBus\Mango.MessageBus.csproj", "{44EFCAD8-CA07-4CC4-9BDC-779A55836B4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mango.Services.EmailAPI", "Mango.Services.EmailAPI\Mango.Services.EmailAPI.csproj", "{5A449738-0111-45BE-BF98-9FBD958E4481}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Services.EmailAPI", "Mango.Services.EmailAPI\Mango.Services.EmailAPI.csproj", "{5A449738-0111-45BE-BF98-9FBD958E4481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mango.Services.OrderAPI", "Mango.Services.OrderAPI\Mango.Services.OrderAPI.csproj", "{6D93A24C-2BB5-4143-8693-71A68D24CECD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{5A449738-0111-45BE-BF98-9FBD958E4481}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A449738-0111-45BE-BF98-9FBD958E4481}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A449738-0111-45BE-BF98-9FBD958E4481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D93A24C-2BB5-4143-8693-71A68D24CECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D93A24C-2BB5-4143-8693-71A68D24CECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D93A24C-2BB5-4143-8693-71A68D24CECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D93A24C-2BB5-4143-8693-71A68D24CECD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{B0C3DDFB-C2F2-4AFB-B319-720EA62BE4FA} = {4FE59CB0-1076-455D-9A01-52F513B9FD1C}
 		{44EFCAD8-CA07-4CC4-9BDC-779A55836B4B} = {6CC7DD3F-2E34-4C0D-A6CA-FF17A3A1C729}
 		{5A449738-0111-45BE-BF98-9FBD958E4481} = {4FE59CB0-1076-455D-9A01-52F513B9FD1C}
+		{6D93A24C-2BB5-4143-8693-71A68D24CECD} = {4FE59CB0-1076-455D-9A01-52F513B9FD1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E149B654-60A8-4C99-9953-6B0EB2493DA8}
