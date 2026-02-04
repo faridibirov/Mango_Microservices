@@ -1,5 +1,6 @@
 ﻿using Mango.Web.Models;
 using Mango.Web.Service.IService;
+using Mango.Web.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -19,9 +20,9 @@ public class CartController : Controller
     }
 
     [Authorize]
-    public async  Task<IActionResult> CartIndex()
+    public async Task<IActionResult> CartIndex()
     {
-        return View( await LoadCartDtoBasedOnLoggedInUser());
+        return View(await LoadCartDtoBasedOnLoggedInUser());
     }
 
     [Authorize]
@@ -35,10 +36,10 @@ public class CartController : Controller
     [ActionName("Checkout")]
     public async Task<IActionResult> Checkout(CartDto cartDto)
     {
-       CartDto cart = await LoadCartDtoBasedOnLoggedInUser();
-       cart.CartHeader.Phone = cartDto.CartHeader.Phone;
-       cart.CartHeader.Email = cartDto.CartHeader.Email;
-       cart.CartHeader.FullName = cartDto.CartHeader.FullName;
+        CartDto cart = await LoadCartDtoBasedOnLoggedInUser();
+        cart.CartHeader.Phone = cartDto.CartHeader.Phone;
+        cart.CartHeader.Email = cartDto.CartHeader.Email;
+        cart.CartHeader.FullName = cartDto.CartHeader.FullName;
 
         var response = await _orderService.CreateOrder(cart);
 
@@ -67,7 +68,18 @@ public class CartController : Controller
     [Authorize]
     public async Task<IActionResult> Confirmation(int orderId)
     {
-        return View(orderId);
+        ResponseDto? response = await _orderService.ValidateStripeSession(orderId);
+
+        if (response != null && response.IsSuccess)
+        {
+            OrderHeaderDto orderHeader = JsonConvert.DeserializeObject<OrderHeaderDto>(Convert.ToString(response.Result));
+            if (orderHeader.Status == SD.Status_Approved)
+            {
+                return View(orderId);
+
+            }
+        }
+            return RedirectToAction(nameof(CartIndex));
     }
 
     public async Task<IActionResult> Remove(int cartDetailsId)
@@ -127,10 +139,10 @@ public class CartController : Controller
 
     private async Task<CartDto> LoadCartDtoBasedOnLoggedInUser()
     {
-        var userId = User.Claims.Where(u=>u.Type==JwtRegisteredClaimNames.Sub)?.FirstOrDefault()?.Value;
+        var userId = User.Claims.Where(u => u.Type == JwtRegisteredClaimNames.Sub)?.FirstOrDefault()?.Value;
         ResponseDto? response = await _cartService.GetCartByUserIdAsync(userId);
 
-        if(response != null && response.IsSuccess)
+        if (response != null && response.IsSuccess)
         {
             CartDto cartDto = JsonConvert.DeserializeObject<CartDto>(Convert.ToString(response.Result));
             return cartDto;
