@@ -141,7 +141,7 @@ public class OrderAPIController : ControllerBase
                 RewardsDto rewardsDto = new RewardsDto()
                 {
                     OrderId = orderHeader.OrderHeaderId,
-                    RewardsActivity = Convert.ToInt32(orderHeader.CartTotal),
+                    RewardsActivity = Convert.ToInt32(orderHeader.OrderTotal),
                     UserId = orderHeader.UserId
                 };
                 string topicName = _configuration.GetValue<string>("TopicAndQueuNames:OrderCreatedTopic");
