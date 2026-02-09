@@ -159,33 +159,22 @@
 
     ///ORDER
     {
-      "UpstreamHttpMethod": [ "Get" ],
-      "UpstreamPathTemplate": "/api/order/GetOrders/{id}",
-      "DownstreamPathTemplate": "/api/order/GetOrders?userId={id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7004
-        }
-      ]
+        "UpstreamHttpMethod": [ "Get" ],
+        "UpstreamPathTemplate": "/api/order/GetOrders",
+        "DownstreamPathTemplate": "/api/order/GetOrders",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "localhost",
+                "Port": 7004
+            }
+        ],
+        "AuthenticationProviderKey": "Bearer"
     },
     {
       "UpstreamHttpMethod": [ "Get" ],
-      "UpstreamPathTemplate": "/api/order/GetOrders/{id}",
-      "DownstreamPathTemplate": "/api/order/GetOrders/{id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7004
-        }
-      ]
-    },
-    {
-      "UpstreamHttpMethod": [ "Get" ],
-      "UpstreamPathTemplate": "/api/order/GetOrders/",
-      "DownstreamPathTemplate": "/api/order/GetOrders?userId=''",
+      "UpstreamPathTemplate": "/api/order/GetOrder/{id}",
+      "DownstreamPathTemplate": "/api/order/GetOrder/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
