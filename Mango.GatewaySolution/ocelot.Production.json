@@ -8,7 +8,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesproductapifd.azurewebsites.net"
         }
       ]
     },
@@ -19,7 +19,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesproductapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -31,7 +31,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesproductapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -45,7 +45,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicescouponapifd.azurewebsites.net"
         }
       ]
     },
@@ -56,7 +56,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicescouponapifd.azurewebsites.net"
         }
       ]
     },
@@ -67,7 +67,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicescouponapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -79,7 +79,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicescouponapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -92,7 +92,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesshoppingcartapifd.azurewebsites.net"
         }
       ]
     },
@@ -103,7 +103,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesshoppingcartapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -115,7 +115,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesshoppingcartapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -127,7 +127,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesshoppingcartapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -139,7 +139,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesshoppingcartapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -153,8 +153,8 @@
         "DownstreamScheme": "https",
         "DownstreamHostAndPorts": [
             {
-                "Host": "localhost",
-    
+                "Host": "mangoservicesorderapifd.azurewebsites.net"
+
             }
         ],
         "AuthenticationProviderKey": "Bearer"
@@ -166,7 +166,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesorderapifd.azurewebsites.net"
         }
       ]
     },
@@ -177,7 +177,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesorderapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -189,7 +189,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesorderapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -201,7 +201,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesorderapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
@@ -213,13 +213,13 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost"
+            "Host": "mangoservicesorderapifd.azurewebsites.net"
         }
       ],
       "AuthenticationProviderKey": "Bearer"
     }
   ],
-  "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:7777"
-  }
+    "GlobalConfiguration": {
+        "BaseUrl": "https://mangogatewaysolutionfd.azurewebsites.net"
+    }
 }
